@@ -125,25 +125,21 @@ console.log(`Total: $${sum}`);
         
 //     }
 
+
     var totalSum = 0
     var avgChange = 0
-    var diff = []
-    var diff1 = []
+    
     
 
     for (var i = 0; i < finances.length; i++) {
-        
         var newFinance = finances[i][1]   
-        var change = newFinance - avgChange
-        avgChange = newFinance
-        
-        diff.push(change)
-        diff1.push(finances[i][1], change)
-        totalSum +=  change
+
+        console.log(newFinance - avgChange)
+        avgChange = newFinance 
+    
         
     }
-    var totalDiff = (totalSum/sum)
-    console.log(change)
+    //Trying to total the differences into a temp array to sum up and divide by sum to obtain the average
     
 
 
