@@ -86,3 +86,81 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+
+//HEADERS
+console.log('Financial Analysis')
+console.log('--------------------')
+
+//Total number of months
+    
+var totalNumberOfMonths = finances.length
+console.log(`Total Months: ${finances.length}`)
+
+//Total amount of Profit/Losses over the entire period
+var sum = 0
+
+for (i=0; i<finances.length; i++) {
+    
+    sum += finances[i][1]
+}
+
+console.log(`Total: $${sum}`);
+
+    
+//Average changes in Profit/Losses over an entire period
+
+// var avgChange = (finances) => {
+//     var diffArray = [];
+//     for(var i = 0; i < finances.length; i++) {
+//         for(var j = 0; j < finances[i].length; j++) {
+//         diffArray.push(Math.abs(finances[i][j] - finances[i][j - 1]))        
+//         }
+//         return diffArray;
+        
+        
+//     }
+//     console.log(avgChange(finances));
+        
+        
+//     }
+
+    var totalSum = 0
+    var avgChange = 0
+    var diff = []
+    var diff1 = []
+    
+
+    for (var i = 0; i < finances.length; i++) {
+        
+        var newFinance = finances[i][1]   
+        var change = newFinance - avgChange
+        avgChange = newFinance
+        
+        diff.push(change)
+        diff1.push(finances[i][1], change)
+        totalSum +=  change
+        
+    }
+    var totalDiff = (totalSum/sum)
+    console.log(change)
+    
+
+
+
+
+
+
+//Greatest increase in profits (date and amount) over the entire period
+greatestIncrease = finances[0]+[1];
+
+for(var i=1; i < finances.length; i++) {
+    if(finances > greatestIncrease) {
+        greatestIncrease = finances[0][1]
+
+    }
+}
+console.log(`Greatest Increase in Profits: ${greatestIncrease}`);
+
+
+//Greatest decrease in losses (date and amount) over the entire period
