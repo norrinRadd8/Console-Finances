@@ -39,7 +39,8 @@ N/A
 
 ## Installation
 
-N/A
+Live link to website for review.
+GitHub URL. https://github.com/norrinRadd8/Console-Finances.git
 
 ## Usage
 
