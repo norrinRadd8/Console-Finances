@@ -87,47 +87,37 @@ var finances = [
     ['Feb-2017', 671099]
 ];
 
+var total = []
+var dates = []
+var sum = 0
+var totalNumberOfMonths = finances.length
+var avgChange = 0
+var totalSum = 0
 
 //HEADERS
 console.log('Financial Analysis')
 console.log('--------------------')
 
-
 //Total number of months
-
-var totalNumberOfMonths = finances.length
 console.log(`Total Months: ${finances.length}`)
 
 //Total amount of Profit/Losses over the entire period
-var sum = 0
-
 for (var i = 0; i < finances.length; i++) {
 
     sum += finances[i][1]
-
+    
 }
-
 console.log(`Total: $${sum}`);
 
-
-
 //Average changes in Profit/Losses over an entire period
-
-
-
-var avgChange = 0
-var total = []
-
 for (var i = 0; i < finances.length; i++) {
 
-    total.push(finances[i][1] - avgChange)
+    total.push(finances[i][1] - avgChange) + inclDates
+    var inclDates = dates.push(finances[i][0])
     avgChange = finances[i][1]
-
-
 }
 
 //Total the differences into a temp array to sum up and divide by sum to obtain the average
-var totalSum = 0
 total.shift() //Removing the first element in the array, was displaying Jan-10 
 
 for (var j = 0; j < total.length; j++) {
@@ -135,34 +125,38 @@ for (var j = 0; j < total.length; j++) {
     totalSum += total[j] / 85;
 
 }
-
 console.log(`Average Change: $ ${totalSum.toFixed(2)}`)
-
-
-
-
 
 //Greatest increase in profits (date and amount) over the entire period
 
-for (var j = 0; j < total.length; j++) {
-    //console.log(total[j])
-    total[j]
-   //var gip = total.indexOf(Math.max(total[j]))
+var greatestIncrease = (values) => {
+    var highest = 0;
+    for (let i=0; i < values.length; i++) {
+        if (values[i] > highest) {
+            highest = values[i]
+            
+        }
+    }
+    return highest
 }
 
-//console.log(`Greatest Increase in Profits: ${gip}`);
+console.log(`Greatest Increase in Profits: ($ ${greatestIncrease(total)})`)
 
-// var greatestIncrease = finances[0]+[1];
 
-//  for(var i=1; i < finances.length; i++) {
-//      if(finances[i][1] > greatestIncrease) {
-//         greatestIncrease = finances[0]+[1]
-        
-//      }
-//      console.log(Math.max(finances))
 
-// }
-// console.log(`Greatest Increase in Profits: ${greatestIncrease}`);
 
 
 //Greatest decrease in losses (date and amount) over the entire period
+
+var greatestDecrease = (values) => {
+    var lowest = 0;
+    for (let i=0; i < values.length; i++) {
+        if (values[i] < lowest) {
+            lowest = values[i]
+            
+        }
+    }
+    return lowest
+}
+
+console.log(`Greatest Increase in Profits: ($ ${greatestDecrease(total)})`)
