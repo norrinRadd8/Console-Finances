@@ -112,10 +112,13 @@ console.log(`Total: $${sum}`);
 //Average changes in Profit/Losses over an entire period
 for (var i = 0; i < finances.length; i++) {
 
-    total.push(finances[i][1] - avgChange) + inclDates
-    var inclDates = dates.push(finances[i][0])
+    total.push(finances[i][1] - avgChange) 
+    dates.push(finances[i][0], total[i])
     avgChange = finances[i][1]
+    
+    
 }
+
 
 //Total the differences into a temp array to sum up and divide by sum to obtain the average
 total.shift() //Removing the first element in the array, was displaying Jan-10 
@@ -142,10 +145,6 @@ var greatestIncrease = (values) => {
 
 console.log(`Greatest Increase in Profits: ($ ${greatestIncrease(total)})`)
 
-
-
-
-
 //Greatest decrease in losses (date and amount) over the entire period
 
 var greatestDecrease = (values) => {
@@ -159,4 +158,7 @@ var greatestDecrease = (values) => {
     return lowest
 }
 
-console.log(`Greatest Increase in Profits: ($ ${greatestDecrease(total)})`)
+console.log(`Greatest Decrease in Profits:  ($ ${greatestDecrease(total)})`)
+
+
+
