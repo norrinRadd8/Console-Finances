@@ -125,26 +125,26 @@ console.log(`Total: $${sum}`);
     console.log(total)
     //Trying to total the differences into a temp array to sum up and divide by sum to obtain the average
 
-var totalAvg = 0
-for(var i = 0; i < total.length; i++) {
-   //var thisTotal = totalAvg += total
-   console.log(total)
-}
-//console.log(thisTotal)
+// var totalAvg = 0
+// for(var i = 0; i < total.length; i++) {
+//    //var thisTotal = totalAvg += total
+//    console.log(total)
+// }
+// //console.log(thisTotal)
 
 
 
 
 //Greatest increase in profits (date and amount) over the entire period
-var greatestIncrease = finances[0]+[1];
+// var greatestIncrease = finances[0]+[1];
 
-for(var i=1; i < finances.length; i++) {
-    if(finances[i][1] > greatestIncrease) {
-        greatestIncrease = finances[0]+[1]
+// for(var i=1; i < finances.length; i++) {
+//     if(finances[i][1] > greatestIncrease) {
+//         greatestIncrease = finances[0]+[1]
 
-    }
-}
-console.log(`Greatest Increase in Profits: ${greatestIncrease}`);
+//     }
+// }
+// console.log(`Greatest Increase in Profits: ${greatestIncrease}`);
 
 
 //Greatest decrease in losses (date and amount) over the entire period
