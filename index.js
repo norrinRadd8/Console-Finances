@@ -100,7 +100,7 @@ console.log(`Total Months: ${finances.length}`)
 //Total amount of Profit/Losses over the entire period
 var sum = 0
 
-for (i=0; i<finances.length; i++) {
+for (var i=0; i<finances.length; i++) {
     
     sum += finances[i][1]
 }
@@ -110,49 +110,37 @@ console.log(`Total: $${sum}`);
     
 //Average changes in Profit/Losses over an entire period
 
-// var avgChange = (finances) => {
-//     var diffArray = [];
-//     for(var i = 0; i < finances.length; i++) {
-//         for(var j = 0; j < finances[i].length; j++) {
-//         diffArray.push(Math.abs(finances[i][j] - finances[i][j - 1]))        
-//         }
-//         return diffArray;
-        
-        
-//     }
-//     console.log(avgChange(finances));
-        
-        
-//     }
-
 
     var totalSum = 0
     var avgChange = 0
-    
+    var total = []
     
 
     for (var i = 0; i < finances.length; i++) {
         var newFinance = finances[i][1]   
 
-        console.log(newFinance - avgChange)
-        avgChange = newFinance 
-    
-        
+        total.push(newFinance - avgChange) 
+        avgChange = newFinance     
     }
+    console.log(total)
     //Trying to total the differences into a temp array to sum up and divide by sum to obtain the average
-    
 
-
+var totalAvg = 0
+for(var i = 0; i < total.length; i++) {
+   //var thisTotal = totalAvg += total
+   console.log(total)
+}
+//console.log(thisTotal)
 
 
 
 
 //Greatest increase in profits (date and amount) over the entire period
-greatestIncrease = finances[0]+[1];
+var greatestIncrease = finances[0]+[1];
 
 for(var i=1; i < finances.length; i++) {
-    if(finances > greatestIncrease) {
-        greatestIncrease = finances[0][1]
+    if(finances[i][1] > greatestIncrease) {
+        greatestIncrease = finances[0]+[1]
 
     }
 }
