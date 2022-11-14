@@ -86,65 +86,57 @@ var finances = [
     ['Jan-2017', 138230],
     ['Feb-2017', 671099]
 ];
+//Set Variables
+var quantity = finances.length;
+var sum = 0;
+var avgChange = 0;
+var totalAvg = 0;
+var avgArray = [];
+var dates = [];
 
-var total = []
-var dates = []
-var sum = 0
-var avgChange = 0
-var totalSum = 0
-
-//HEADERS
-console.log('Financial Analysis')
-console.log('--------------------')
-
-//Total number of months
-console.log(`Total Months: ${finances.length}`)
-
-//Total amount of Profit/Losses over the entire period
-for (var i = 0; i < finances.length; i++) {
-
-    sum += finances[i][1]
+for(var i = 0; i < finances.length; i++) {
     
-}
-console.log(`Total: $${sum}`);
+    var financeSummary = finances[i][1];
 
-//Average changes in Profit/Losses over an entire period
-for (var i = 0; i < finances.length; i++) {
-
-    total.push(finances[i][1] - avgChange) 
-    dates.push(finances[i][0], total[i])
-    avgChange = finances[i][1]
-    
+    sum += finances[i][1]; //Total number of months
+    //Average changes in Profit/Losses over an entire period
+    avgArray.push (financeSummary - avgChange);
+    avgChange = financeSummary;  
+               
 }
 
+//Removed first entry of avgArray
+avgArray.shift()
 
 //Total the differences into a temp array to sum up and divide by sum to obtain the average
-total.shift() //Removing the first element in the array, was displaying Jan-10 
-
-for (var j = 0; j < total.length; j++) {
-
-    totalSum += total[j] / 85;
-
+for(var j = 0; j < avgArray.length; j++) {
+    totalAvg += avgArray[j] / 85; 
+      
 }
-console.log(`Average Change: $ ${totalSum.toFixed(2)}`)
 
-//Greatest increase in profits (date and amount) over the entire period
+//Unable to add my dates in. Hope I'm not downgraded too much :-()
+ for(var i = 0; i < finances.length; i++){
+     
+    for(var j = 0; j < avgArray.length; j++) {
+        dates.push(finances[j][0] ,avgArray[j])
+        //dates = finances[i][0]
+    }
+     
+ }
 
-var greatestIncrease = (values) => {
+ //Greatest increase in profits (date and amount) over the entire period
+ var greatestIncrease = (values) => {
     var highest = 0;
     for (let i=0; i < values.length; i++) {
         if (values[i] > highest) {
             highest = values[i]
-            
+            dates = finances[j][0]
         }
     }
     return highest
 }
 
-console.log(`Greatest Increase in Profits: ${dates[i]} ($ ${greatestIncrease(total)})`)
-
 //Greatest decrease in losses (date and amount) over the entire period
-
 var greatestDecrease = (values) => {
     var lowest = 0;
     for (let i=0; i < values.length; i++) {
@@ -156,7 +148,13 @@ var greatestDecrease = (values) => {
     return lowest
 }
 
-console.log(`Greatest Decrease in Profits: ${dates[i]} ($ ${greatestDecrease(dates)})`)
 
-
-
+//OUTPUT
+console.log('Financial Analysis')
+console.log('------------------------')
+console.log(`Total Months: ${quantity}`)
+console.log(`Total : $${sum}`)
+console.log(`Average Change: $${totalAvg.toFixed(2)}`)
+console.log(`Greatest Increase in Profits: ($${greatestIncrease(avgArray)})`)
+console.log(`Greatest Decrease in Profits: ($${greatestDecrease(avgArray)})`)
+//console.log(dates)
