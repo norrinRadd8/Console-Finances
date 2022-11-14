@@ -90,7 +90,6 @@ var finances = [
 var total = []
 var dates = []
 var sum = 0
-var totalNumberOfMonths = finances.length
 var avgChange = 0
 var totalSum = 0
 
@@ -115,7 +114,6 @@ for (var i = 0; i < finances.length; i++) {
     total.push(finances[i][1] - avgChange) 
     dates.push(finances[i][0], total[i])
     avgChange = finances[i][1]
-    
     
 }
 
@@ -143,7 +141,7 @@ var greatestIncrease = (values) => {
     return highest
 }
 
-console.log(`Greatest Increase in Profits: ($ ${greatestIncrease(total)})`)
+console.log(`Greatest Increase in Profits: ${dates[i]} ($ ${greatestIncrease(total)})`)
 
 //Greatest decrease in losses (date and amount) over the entire period
 
@@ -158,7 +156,7 @@ var greatestDecrease = (values) => {
     return lowest
 }
 
-console.log(`Greatest Decrease in Profits:  ($ ${greatestDecrease(total)})`)
+console.log(`Greatest Decrease in Profits: ${dates[i]} ($ ${greatestDecrease(dates)})`)
 
 
 
